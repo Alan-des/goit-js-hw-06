@@ -5,15 +5,11 @@ const selector = {
   spanCounter: document.querySelector("#value"),
 };
 
-function decrementValue() {
-  counterValue -= 1;
+function functionValue(evt) {
+  const dataAction = evt.currentTarget.dataset.action;
+  dataAction === "decrement" ? (counterValue -= 1) : (counterValue += 1);
   selector.spanCounter.textContent = counterValue;
 }
 
-function incrementValue() {
-  counterValue += 1;
-  selector.spanCounter.textContent = counterValue;
-}
-
-selector.onButtonDE.addEventListener("click", decrementValue);
-selector.onButtonIn.addEventListener("click", incrementValue);
+selector.onButtonDE.addEventListener("click", functionValue);
+selector.onButtonIn.addEventListener("click", functionValue);
